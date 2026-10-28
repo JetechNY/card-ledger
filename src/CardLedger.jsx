@@ -738,6 +738,22 @@ function CardTile({
         </div>
       )}
 
+      {!topCategory && !(card.eligibleCategories && card.eligibleCategories.length > 0) && (
+        <div
+          title={`Earns ${card.baseRate}% on every purchase — no bonus categories on this card`}
+          style={{
+            fontFamily: TOK.mono, fontSize: 10.5, color: "rgba(255,255,255,0.9)",
+            background: "rgba(0,0,0,0.3)", borderRadius: 5, padding: "3px 7px",
+            display: "inline-flex", alignItems: "center", gap: 4, alignSelf: "flex-start",
+            position: "relative", whiteSpace: "nowrap", maxWidth: "100%",
+            overflow: "hidden", textOverflow: "ellipsis", cursor: "help",
+          }}
+        >
+          {card.baseRate}% flat
+          <span style={{ opacity: 0.6 }}>· on everything</span>
+        </div>
+      )}
+
       {topCategory && (
         <div
           title={topCategory.cap || undefined}
